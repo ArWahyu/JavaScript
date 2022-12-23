@@ -14,9 +14,8 @@ export const getSearch = async (req, res) => {
     //pencarian kategori admin
     if (req.role === "admin") {
       let date_ob = new Date();
-      //let date = ("0" + date_ob.getDate()).slice(-2);
       let mounth = ("0" + date_ob.getMonth()).slice(-2);
-      //let year =.getFullYear();
+
       let results = [];
       let totalHektar = 0,
         totalJanjang = 0,
@@ -40,13 +39,6 @@ export const getSearch = async (req, res) => {
             "keterangan",
           ],
           where: {
-            [Op.and]: [
-              {
-                tanggal: {
-                  [Op.like]: "%" + search + "%",
-                },
-              },
-            ],
             [Op.or]: [
               {
                 bahan: {
