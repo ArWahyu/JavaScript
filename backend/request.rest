@@ -1,0 +1,90 @@
+POST  http://localhost:5000/users
+Content-Type: application/json
+
+{ 
+    "name":"Ar Wahyu",
+    "email":"ar@gmail.com",
+    "password":"12345678",
+    "confPassword":"12345678",
+    "role":"admin"
+}
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{ 
+    "email":"person_kandir@gmail.com",
+    "password":"12345678"
+}
+
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{ 
+    "email":"ar@gmail.com",
+    "password":"123456"
+}
+
+
+
+###
+GET  http://localhost:5000/karyawanafd/add/1c480eca-3d73-418f-99e1-d26964d0d519
+
+
+
+
+
+###
+GET  http://localhost:5000/karyawanafd
+
+
+###
+POST  http://localhost:5000/products
+Content-Type: application/json
+
+{ 
+    "name":"Wahyu",
+    "nik":"8101062408950001",
+    "pt":"PT. Nusaina Agro Kobi Manise",
+    "unit":"Kandir",
+    "alamat":"Kandir",
+    "tempatLahir":"Kobi Mukti",
+    "tanggalLahir":"24 Agustus 1998",
+    "jenisKelamin":"laki-laki",
+    "agama":"Islam",
+    "pendidikan":"S1",
+    "status":"BK",
+    "suku":"Jawa",
+    "noRek":"-",
+    "noHp":"-",
+    "tanggalMasukKerja":"06 Oktober 2022",
+    "jabatan":"IT",
+    "pekerjaan":"-",
+    "golongan":"Pegawai",
+    "greate":"I-I",
+    "mutasi":"-",
+    "kategori":"-"
+}
+
+###
+POST  http://localhost:5000/karyawanafd
+Content-Type: application/json
+
+{ 
+    "objekKerja": "Panen",
+    "tanggal": "09 Desember 2022",
+    "blok": "Aa50",
+    "hektar" : 2,
+    "janjang" : 180, 
+    "pokok" : 120, 
+    "pdes" : "-",
+    "bahan" : "-",
+    "dosis" : 0,
+    "pemakaianBahan": 0,
+    "keterangan" : "-"
+}
+
+        
