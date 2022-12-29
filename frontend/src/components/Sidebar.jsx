@@ -60,6 +60,16 @@ const Sidebar = () => {
          
           
         </ul>
+        <div>
+            <p className="menu-label">Laporan</p>
+            <ul className="menu-list">
+              <li>
+                <NavLink to={"/laporan"}>
+                  <IoPerson /> Laporan
+                </NavLink>
+              </li>
+            </ul>
+          </div>
         {user && user.role === "admin" && (
           <div>
             <p className="menu-label">Admin</p>

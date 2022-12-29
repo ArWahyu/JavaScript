@@ -35,6 +35,8 @@ GET  http://localhost:5000/karyawanafd/add/1c480eca-3d73-418f-99e1-d26964d0d519
 
 
 
+###
+GET  http://localhost:5000/laporan?search_query=Panen&search_query2=2022
 
 
 ###
@@ -74,8 +76,8 @@ POST  http://localhost:5000/karyawanafd
 Content-Type: application/json
 
 { 
+    "productId":7,
     "objekKerja": "Panen",
-    "tanggal": "09 Desember 2022",
     "blok": "Aa50",
     "hektar" : 2,
     "janjang" : 180, 

@@ -10,6 +10,7 @@ import EditUser from "./page/EditUser";
 import AddProduct from "./page/AddProduct";
 import EditProduct from "./page/EditProduct";
 import ListRKH from "./page/pageafdeling/RKH";
+import LaporanBulanan from "./page/pageLaporan/LaporanTanaman";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/products/add" element={<AddProduct />} />
           <Route path="/products/edit/:id" element={<EditProduct />} />
           <Route path="/rkh" element={<ListRKH />} />
+          <Route path="/laporan" element={<LaporanBulanan />} />
         </Routes>
       </BrowserRouter>
     </div>

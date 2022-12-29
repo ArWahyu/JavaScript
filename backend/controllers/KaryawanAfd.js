@@ -12,10 +12,10 @@ export const getSearch = async (req, res) => {
 
   try {
     //pencarian kategori admin
-    if (req.role === "admin") {
+    if (req.role === "admin" || req.role === "Personalia") {
       let date_ob = new Date();
       let mounth = ("0" + date_ob.getMonth()).slice(-2);
-
+      let a = Number(mounth) + 1;
       let results = [];
       let totalHektar = 0,
         totalJanjang = 0,
@@ -68,7 +68,7 @@ export const getSearch = async (req, res) => {
             },
           ],
           limit: limit,
-          order: [["tanggal", "ASC"]],
+          order: [["createdAt", "DESC"]],
         });
 
         results = result;
@@ -134,7 +134,7 @@ export const getSearch = async (req, res) => {
             },
           ],
           limit: limit,
-          order: [["tanggal", "ASC"]],
+          order: [["createdAt", "DESC"]],
         });
         results = result;
         for (let i = 0; i < results.length; i++) {
@@ -166,6 +166,8 @@ export const getSearch = async (req, res) => {
       //pencarian kategori user
       let date_ob = new Date();
       let date = ("0" + date_ob.getDate()).slice(-2);
+      let mounth = ("0" + date_ob.getMonth()).slice(-2);
+      let a = Number(mounth) + 1;
       let results = [];
       let totalHektar = 0,
         totalJanjang = 0,
@@ -190,6 +192,9 @@ export const getSearch = async (req, res) => {
           ],
           where: {
             userId: req.userId,
+            tanggal: {
+              [Op.like]: "%" + a + "%",
+            },
             [Op.or]: [
               {
                 blok: {
@@ -215,7 +220,7 @@ export const getSearch = async (req, res) => {
             },
           ],
           limit: limit,
-          order: [["tanggal", "ASC"]],
+          order: [["createdAt", "DESC"]],
         });
         results = result;
         for (let i = 0; i < results.length; i++) {
@@ -251,6 +256,9 @@ export const getSearch = async (req, res) => {
             id: {
               [Op.lt]: last_id,
             },
+            tanggal: {
+              [Op.like]: "%" + a + "%",
+            },
             [Op.or]: [
               {
                 blok: {
@@ -276,7 +284,7 @@ export const getSearch = async (req, res) => {
             },
           ],
           limit: limit,
-          order: [["tanggal", "ASC"]],
+          order: [["createdAt", "DESC"]],
         });
         results = result;
         for (let i = 0; i < results.length; i++) {
@@ -389,10 +397,27 @@ export const getKaryawanAfdById = async (req, res) => {
 };
 
 export const createKaryawanAfd = async (req, res) => {
+  let date_ob = new Date();
+  let mounth = ("0" + date_ob.getMonth()).slice(-2);
+  let date = ("0" + date_ob.getDate()).slice(-2);
+  let year = date_ob.getFullYear();
+  const bulan = [
+    "Januari",
+    "Februari",
+    "Maret",
+    "April",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Agustus",
+    "Septmber",
+    "Oktober",
+    "November",
+    "Desember",
+  ];
   const {
     productId,
     objekKerja,
-    tanggal,
     blok,
     hektar,
     janjang,
@@ -407,7 +432,7 @@ export const createKaryawanAfd = async (req, res) => {
     await KaryawanAfd.create({
       productId: productId,
       objekKerja: objekKerja,
-      tanggal: tanggal,
+      tanggal: date + " " + bulan[mounth] + " " + year,
       blok: blok,
       hektar: hektar,
       janjang: janjang,

@@ -23,8 +23,11 @@ const KaryawanAfd = db.define(
       },
     },
     tanggal: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [1, 100],
+      },
     },
     objekKerja: {
       type: DataTypes.STRING,

@@ -8,7 +8,7 @@ const ObjekKerjaList = () => {
   const [karyawanAfd, setKaryawanAfd] = useState([]);
   const [lastId, setLastId] = useState(0);
   const [tempId, setTempId] = useState(0);
-  const [limit] = useState(10);
+  const [limit] = useState(30);
   const [totalHektar,setHektar] = useState();
   const [totalJanjang,setJanjang] = useState();
   const [totalPokok,setPokok] = useState();
